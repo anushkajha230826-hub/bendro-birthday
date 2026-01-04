@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Bendro 🤍</title>
+
+<!-- Handwritten Font -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Patrick Hand', Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pop {
+  animation: pop 0.6s ease forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Doodles */
+.doodle {
+  position: fixed;
+  font-size: 25px;
+  opacity: 0.7;
+  animation: float 8s infinite;
+  pointer-events: none;
+}
+
+.doodle.heart { left: 10%; animation-delay: 0s; }
+.doodle.star  { left: 50%; animation-delay: 2s; }
+.doodle.heart:nth-child(3) { left: 80%; animation-delay: 4s; }
+.doodle.star:nth-child(4)  { left: 30%; animation-delay: 6s; }
+
+@keyframes float {
+  0%   { transform: translateY(100vh) scale(0.8); opacity:0.7; }
+  50%  { transform: translateY(50vh) scale(1); opacity:1; }
+  100% { transform: translateY(-10vh) scale(0.8); opacity:0; }
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<!-- Floating Doodles -->
+<div class="doodle heart">❤️</div>
+<div class="doodle star">⭐</div>
+<div class="doodle heart">💛</div>
+<div class="doodle star">✨</div>
+
+<!-- Music -->
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SECTION 1 -->
+<section style="background:#99B7F5;">
+  <div class="pop">
+    <h1>hey bendro 🌷</h1>
+    <p>today is special<br>because you exist</p>
+    <p>scroll ↓</p>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section style="background:#F296BD;">
+  <div class="pop">
+    <p>you’re special<br>
+    not loudly<br>
+    not dramatically<br>
+    but in the quiet ways</p>
+
+    <p>the way you care<br>
+    the way you stay<br>
+    the way you try</p>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section style="background:#FCCA59;">
+  <div class="pop">
+    <h2>it’s your birthday 🎂</h2>
+    <p>and i hope today reminds you<br>how loved you are</p>
+  </div>
+</section>
+
+<!-- SECTION 4: SURPRISE -->
+<section style="background:#F5793B;">
+  <div class="pop">
+    <p>i hid something here</p>
+    <button onclick="showSurpriseConfetti()">💛 tap the heart</button>
+    <p id="surprise" class="hidden">
+      when the world feels heavy<br>
+      remember<br>
+      you are never alone<br>
+      not today<br>
+      not ever
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 5: EMOTIONAL CORE -->
+<section style="background:#267F53; color:white;">
+  <div class="pop">
+    <p>
+    you don’t always talk<br>
+    but i notice everything<br><br>
+
+    your strength<br>
+    your patience<br>
+    the love you give<br><br>
+
+    i’m so proud of you
+    </p>
+  </div>
+</section>
+
+<!-- FINAL LETTER -->
+<section style="background:#FFFCFA;">
+  <div class="pop">
+    <p>
+    this website will end<br>
+    but what i feel for you won’t<br><br>
+
+    happy birthday bendro 🤍<br>
+    you are deeply loved
+    </p>
+    <button onclick="alert('this is your hug 🤍')">come here</button>
+  </div>
+</section>
+
+<script>
+let played = false;
+function playMusic() {
+  if (!played) {
+    document.getElementById("bgm").play();
+    played = true;
+  }
+}
+
+function showSurpriseConfetti() {
+  document.getElementById("surprise").style.display = "block";
+
+  // Confetti bursts
+  confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#99B7F5', '#F296BD', '#FCCA59', '#F5793B', '#267F53'] });
+  setTimeout(() => confetti({ particleCount: 100, spread: 90, origin: { y: 0.6 }, colors: ['#99B7F5', '#F296BD', '#FCCA59', '#F5793B', '#267F53'] }), 200);
+  setTimeout(() => confetti({ particleCount: 100, spread: 100, origin: { y: 0.6 }, colors: ['#99B7F5', '#F296BD', '#FCCA59', '#F5793B', '#267F53'] }), 400);
+}
+</script>
+
+</body>
+  </html>
